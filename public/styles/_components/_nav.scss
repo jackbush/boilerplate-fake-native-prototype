@@ -1,0 +1,48 @@
+.nav {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	height: $nav-height;
+	background: #111;
+
+	// This is a drop shadow
+	&::after {
+		$height: 12px;
+		content: '';
+		position: absolute;
+		top: -$height;
+		left: 0;
+		width: 100%;
+		height: $height;
+
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+		// Don't fuck with the mouse events
+		pointer-events: none;
+	}
+}
+
+.nav__items {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+
+	// Interpolated variable because otherwise it does maths
+	margin: 14px 0 0 #{-$gutter};
+}
+
+.nav__item {
+	display: inline-block;
+	margin-left: $gutter;
+	font-size: 14px;
+	text-transform: uppercase;
+
+	* {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+	.nav__item--active {
+		border-bottom: 1px solid white;
+	}

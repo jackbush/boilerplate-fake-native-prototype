@@ -1,0 +1,18 @@
+.phone-container {
+	position: fixed;
+	max-width: 100vw;
+	max-height: 100vh;
+	background: white;
+	overflow: hidden;
+
+	// This is arbritrarily iPhone plus size
+	width: 414px;
+	height: 736px;
+
+	// Robust centering
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+
+	box-shadow: 0px 4px 35px 0px rgba(0,0,0,0.25);
+}

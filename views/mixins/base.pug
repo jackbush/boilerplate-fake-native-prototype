@@ -1,0 +1,58 @@
+include ./navComponents
+include ./modalComponents
+
+mixin page
+	if locals.viewConfig.isomorphic
+		+innerContent
+			block
+	else
+		doctype html
+		html
+			head
+				meta(charset="utf-8")
+				meta(name="viewport", content="width=device-width, initial-scale=1.0")
+				meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+				//- Make it look like an app
+				meta(name="apple-mobile-web-app-capable" content="yes")
+				meta(name="mobile-web-app-capable" content="yes")
+
+				title= locals.viewConfig.title
+				//- link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+				link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet")
+				link(href="/styles/output/main.css", rel="stylesheet")
+
+			body
+				.phone-container.js-page
+					+innerContent
+						block
+
+				script(src='/js/output/core.js')
+				script(src='/js/output/main.js')
+
+
+
+mixin innerContent
+	if locals.viewConfig.nav
+		+navBar(locals.viewConfig.navItems, locals.viewConfig.thisPage)
+
+	if locals.viewConfig.header
+		+headerBar(locals.viewConfig.title, locals.viewConfig.back)
+
+	main.main(
+		class= locals.viewConfig.isLogin ? 'main--login' : null
+	)
+		block
+
+	// TODO: put the proper thing in here!
+	+modal('card-details')
+		.v-center
+			p.label Provider
+			p VISA
+			p.label Card number
+			h3.title 4564 4564 3453 6757
+			p.label Expiry date
+			p 11/16
+			p.label CCV
+			p 765

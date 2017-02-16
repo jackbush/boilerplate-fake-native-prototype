@@ -1,0 +1,16 @@
+mixin headerBar(title, back)
+	header.header
+		if back
+			a(href=locals.viewConfig.back).js-page__link.header__back
+		h1.header__title= title
+
+
+
+mixin navBar(navItems, currentPage)
+	//- navItems are set in viewConfig middleware
+	nav.nav: ul.nav__items
+		for item in navItems
+			li.nav__item(
+				class=item.name === currentPage ? 'nav__item--active' : null
+			)
+				a(href=item.path).js-page__link= item.name

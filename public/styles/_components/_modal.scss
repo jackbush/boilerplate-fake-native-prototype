@@ -1,0 +1,40 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100%);
+	z-index: 1000;
+	background: #fafafa;
+	overflow: scroll;
+	padding: 48px 24px;
+
+	transition: 300ms;
+	transform: translateY(-100%);
+}
+
+	.modal.open {
+		transform: translateY(0);
+	}
+
+	// These are the pure CSS fallback modals
+	@each $name in $modal-names {
+		##{$name}:target {
+			transform: translateY(0);
+		}
+	}
+
+	.modal__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: none;
+		background: transparent;
+		font-size: 30px;
+		padding: 3px 18px;
+		outline: none;
+		
+		// Because they're a-tags
+		color: black;
+		text-decoration: none;
+	}

@@ -1,0 +1,26 @@
+//- For pure CSS fallback to work, you must add your modalname
+//- to the modal-names list in _variables.scss
+
+mixin modal(name)
+	- name = name || 'test'
+	.modal.js-modal(
+		class= 'js-modal--' + name
+		id= name
+	)
+		a.modal__close(
+			href='#'
+			class='js-modal--' + name + '__close'
+		) &times;
+		if block
+			block
+
+
+
+mixin openModal(name)
+	- name = name || 'test'
+	a.cta(
+		href='#' + name
+		class= 'js-modal--' + name + '__open'
+	)&attributes(attributes)
+		if block
+			block
