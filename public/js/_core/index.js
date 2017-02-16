@@ -1,3 +1,5 @@
+/* global NodeList, DOMTokenList */
+
 // For Safari/iOS
 NodeList.prototype.forEach = Array.prototype.forEach;
 DOMTokenList.prototype.forEach = Array.prototype.forEach;

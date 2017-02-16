@@ -1,3 +1,5 @@
+/* global XMLHttpRequest */
+
 var Link = require('./__Link');
 
 function Page (selector) {
